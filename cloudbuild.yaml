@@ -13,9 +13,8 @@ steps:
     - --region=us-central1
     - --subnet=mig-subnet
     - --tags=allow-hc-and-proxy,allow-ssh
-    - --machine-image
-    - priya-machine-image
- 
+    - --container-image
+    - us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/nginx-image:latest
     
  # Update the managed instance group
 
