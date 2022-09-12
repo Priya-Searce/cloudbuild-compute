@@ -6,7 +6,7 @@ steps:
     - compute
     - instance-templates
     - create-with-container
-    - priya-cloud-build-instance-template-v1-$_ENV-$SHORT_SHA
+    - priya-cloud-build-instance-template-v2-$_ENV-$SHORT_SHA
     - --custom-cpu=1
     - --custom-memory=2GB
     - --boot-disk-size=20GB
@@ -14,7 +14,7 @@ steps:
     - --subnet=mig-subnet
     - --tags=allow-hc-and-proxy,allow-ssh
     - --container-image
-    - us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/python-image:latest
+    - us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/nginx-image:latest
  
     
  # Update the managed instance group
@@ -22,7 +22,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['-c','gcloud compute instance-groups managed rolling-action start-update priya-cloudbuild-mig --version=template=priya-cloud-build-instance-template-v1-$_ENV-$SHORT_SHA --region=us-central1 --max-unavailable=0'] 
+  args: ['-c','gcloud compute instance-groups managed rolling-action start-update priya-cloudbuild-mig --version=template=priya-cloud-build-instance-template-v2-$_ENV-$SHORT_SHA --region=us-central1 --max-unavailable=0'] 
   
 options:
  logging: CLOUD_LOGGING_ONLY
