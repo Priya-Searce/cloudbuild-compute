@@ -9,7 +9,7 @@ steps:
   - '-f'
   - 'k8s.yaml'
   env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+  - 'CLOUDSDK_COMPUTE_REGION=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cloudbuild'
 
 # [START cloudbuild_quickstart_build]
