@@ -1,15 +1,58 @@
+# steps:
+# # This step deploys the new version of our container image.
+# # in the hello-cloudbuild Kubernetes Engine cluster.
+
+# - name: 'gcr.io/cloud-builders/kubectl'
+#   id: Deploy
+#   args:
+#   - 'apply'
+#   - '-f'
+#   - 'k8s.yaml'
+#   env:
+#   - 'CLOUDSDK_COMPUTE_REGION=asia-south1-a'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+
+
 steps:
-# This step deploys the new version of our container image.
-# in the hello-cloudbuild Kubernetes Engine cluster.
-
+#step 1
+- name: 'gcr.io/cloud-builders/docker'
+ entrypoint: 'bash'
+ args: [
+  '-c',
+  'docker pull gcr.io/$PROJECT_ID/nginx-image:latest || exit 0'
+ ]
+#step 2
+- name: gcr.io/cloud-builders/docker
+ args: [
+  'build',
+  '-t',
+  'gcr.io/$PROJECT_ID/nginx-image:$TAG_NAME',
+  '-t',
+  'gcr.io/$PROJECT_ID/nginx-image:latest',
+  '.'
+ ]
+#step 3
 - name: 'gcr.io/cloud-builders/kubectl'
-  id: Deploy
-  args:
-  - 'apply'
-  - '-f'
-  - 'k8s.yaml'
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=asia-south1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+ args: ['apply', '-f', 'k8s.yaml']
+ env:
+ - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+ - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+#step 4
+- name: 'gcr.io/cloud-builders/kubectl'
+ args: [
+  'set',
+  'image',
+  'deployment',
+  'nginx',
+  'nginx=gcr.io/$PROJECT_ID/nginx:$TAG_NAME'
+ ]
+ env:
+ - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
+ - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+# push images to Google Container Registry with tags
+images: [
+  'gcr.io/$PROJECT_ID/nginx:$TAG_NAME',
+  'gcr.io/$PROJECT_ID/nginx:latest'
+ ]
 
- 
+
