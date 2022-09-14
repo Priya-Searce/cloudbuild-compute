@@ -43,8 +43,8 @@ steps:
   'set',
   'image',
   'deployment',
-  'nginx',
-  'nginx=gcr.io/$PROJECT_ID/nginx:$TAG_NAME'
+  'nginx-image',
+  'nginx-image=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image'
  ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
@@ -52,8 +52,8 @@ steps:
 
 # push images to Google Container Registry with tags
 images: [
-  'gcr.io/$PROJECT_ID/nginx:$TAG_NAME',
-  'gcr.io/$PROJECT_ID/nginx:latest'
+  'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image',
+  'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image:latest'
  ]
 
 
