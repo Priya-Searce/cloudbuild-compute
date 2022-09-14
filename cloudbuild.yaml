@@ -52,8 +52,8 @@ steps:
 
 # push images to Google Container Registry with tags
 images: [
-  'gcr.io/$PROJECT_ID/priya-python-repo/nginx-image:$TAG_NAME',
-  'gcr.io/$PROJECT_ID/priya-python-repo/nginx-image:latest1'
+  'us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/new-image:$TAG_NAME',
+  'us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/new-image:latest'
  ]
 
 
