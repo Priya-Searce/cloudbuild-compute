@@ -51,7 +51,7 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
 
 # push images to Google Container Registry with tags
-  images: [
+images: [
   'gcr.io/$PROJECT_ID/nginx:$TAG_NAME',
   'gcr.io/$PROJECT_ID/nginx:latest'
  ]
