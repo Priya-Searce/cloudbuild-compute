@@ -1,12 +1,30 @@
-# [START cloudbuild_quickstart_build]
-# build docker image
 steps:
+# This step deploys the new version of our container image.
+# in the hello-cloudbuild Kubernetes Engine cluster.
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
+  args:
+  - 'apply'
+  - '-f'
+  - 'k8s.yaml'
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=hello-cloudbuild'
+
+# [START cloudbuild_quickstart_build]
+# build docker image.
+
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image', '.' ]
+  
 # push docker image
+
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image'
+
 ## [END cloudbuild_quickstart_build]
+
 options:
  logging: CLOUD_LOGGING_ONLY
  
