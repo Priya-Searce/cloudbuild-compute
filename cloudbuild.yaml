@@ -52,8 +52,8 @@ steps:
 
 # push images to Google Container Registry with tags
 images: [
-  'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image',
-  'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image:latest'
+  'gcr.io/$PROJECT_ID/hello-cloudbuild:$TAG_NAME',
+  'gcr.io/$PROJECT_ID/hello-cloudbuild:latest'
  ]
 
 
