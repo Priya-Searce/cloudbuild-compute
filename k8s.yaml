@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-cloudbuild
-        image: us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/python-image:latest
+        image: us-central1-docker.pkg.dev/searce-playground-v1/priya-python-repo/nginx-image:latest
         
         #us-central1-docker.pkg.dev/GOOGLE_CLOUD_PROJECT/my-repository/hello-cloudbuild:COMMIT_SHA
         ports:
