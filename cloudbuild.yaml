@@ -43,8 +43,8 @@ steps:
   'set',
   'image',
   'deployment',
-  'nginx-image',
-  'nginx-image=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image'
+  'nginx',
+  'nginx=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image'
  ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
