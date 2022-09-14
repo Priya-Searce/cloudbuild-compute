@@ -51,10 +51,13 @@ steps:
   - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
 
 # push images to Google Container Registry with tags
+# push docker image
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  id: Push
-  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image:latest']
+# - name: 'gcr.io/cloud-builders/docker'
+#   id: Push
+#   args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image:latest']
   
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Push
