@@ -44,7 +44,7 @@ steps:
   'image',
   'deployment',
   'hello-cloudbuild',
-  'hello-cloudbuild=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/python-image'
+  'hello-cloudbuild=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image'
  ]
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
@@ -52,8 +52,8 @@ steps:
 
 # push images to Google Container Registry with tags
 images: [
-  'gcr.io/$PROJECT_ID/hello-cloudbuild:$TAG_NAME',
-  'gcr.io/$PROJECT_ID/hello-cloudbild:latest'
+  'gcr.io/$PROJECT_ID/priya-python-repo/hello-cloudbuild:$TAG_NAME',
+  'gcr.io/$PROJECT_ID/priya-python-repo/hello-cloudbild:latest'
  ]
 
 
