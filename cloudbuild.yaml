@@ -55,7 +55,7 @@ steps:
   id: Push
   args:
   - 'push'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image:$SHORT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image:latest'
   # [END cloudbuild]
   
 # images: [
