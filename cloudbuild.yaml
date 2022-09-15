@@ -9,8 +9,8 @@
 #   - '-f'
 #   - 'k8s.yaml'
 #   env:
-#   - 'CLOUDSDK_COMPUTE_REGION=asia-south1-a'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+#   - 'CLOUDSDK_COMPUTE_REGION=asia-east1'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=priya-cluster'
 
 
 steps:
@@ -35,8 +35,8 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'k8s.yaml']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=priya-cluster'
 #step 4
 - name: 'gcr.io/cloud-builders/kubectl'
   args: [
@@ -47,8 +47,8 @@ steps:
   'hello-cloudbuild=us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image'
  ]
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=sheetal-gke'
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=priya-cluster'
 
 # push images to Google Container Registry with tags
 # push docker image
