@@ -55,6 +55,10 @@ steps:
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image'
 
+options:
+ logging: CLOUD_LOGGING_ONLY
+ 
+
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Push
 #   args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/priya-python-repo/nginx-image:latest']
